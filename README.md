@@ -2,9 +2,7 @@
 
 Fastbot is a mobile robot platform developed as part of the Robotics Masterclass course. Built using a commercial robot kit, Fastbot is designed to provide hands-on experience with ROS 2, sensor integration, and autonomous navigation. The robot features differential drive, a suite of sensors (including LiDAR and camera), and is fully compatible with the ROS 2 ecosystem for both simulation and real-world operation.
 
-This repository contains all the ROS 2 packages necessary to operate, simulate, and extend the Fastbot platform. Whether you are running Fastbot on real hardware or in simulation, you will find launch files, configuration, and example usage to get started quickly.
-
-Currently, only basic functionalities are available.
+This repository contains all the ROS 2 packages necessary to operate and extend the Fastbot platform. Essential functionalities, such as subscribing to its lidar and camera topics or publishing velocity commands, are available for controlling the real Fastbot robot.
 
 ## Installation Instructions
 
@@ -46,10 +44,12 @@ The password is: `fastbot-ege`
 
 To launch the simulation use command given below. 
 
-Note: Rviz2 is enabled on launch by default.
-
 ```bash
 ros2 launch fastbot_bringup bringup.launch.xml
+```
+If connected to robot with display is enabled, use this launch instead:
+```bash
+ros2 launch fastbot_bringup bringup_rviz.launch.xml
 ```
 
 In a second terminal connect to robot and check topic outputs:
