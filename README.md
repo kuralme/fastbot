@@ -24,8 +24,15 @@ The password is: `fastbot-ege`
     ```bash
     cd ~/ros2_ws/src
     git clone <this-repo-url>
+    cd fastbot
+    git submodule update --init --recursive
     ```
 2. Install dependencies:
+    ```bash
+    # Optional: Use if rosdep not initialized
+    sudo rosdep init
+    rosdep update
+    ```
     ```bash
     cd ~/ros2_ws
     rosdep install --from-paths src --ignore-src -r -y
