@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     rviz_config = os.path.join(get_package_share_directory(
-        'fastbot_slam'), 'rviz', 'nav.rviz')
+        'fastbot_slam'), 'rviz', 'fastbot_nav.rviz')
     nav2_yaml = os.path.join(get_package_share_directory(
         'fastbot_slam'), 'config', 'amcl_config.yaml')
     map_file = os.path.join(get_package_share_directory(
