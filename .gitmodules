@@ -1,3 +1,6 @@
 [submodule "Lslidar_ROS2_driver"]
 	path = Lslidar_ROS2_driver
 	url = git@github.com:kuralme/Lslidar_ROS2_driver.git
+[submodule "fastbot_ros2_docker"]
+	path = fastbot_ros2_docker
+	url = git@github.com:kuralme/fastbot_ros2_docker.git
