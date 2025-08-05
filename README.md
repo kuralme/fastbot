@@ -6,6 +6,11 @@ This repository contains all the ROS 2 packages necessary to operate and extend 
 
 With the latest addition of the Docker submodule, Fastbot can now be controlled using a containerized ROS 2 environment. This setup enables seamless deployment of SLAM and navigation capabilities on the real robot, making it easier to manage dependencies and run advanced robotics software reliably on the Raspberry Pi 4.
 
+## Prerequisites
+
+- ROS2 Humble (for host setup)
+- Docker Engine and Compose (for docker setup)
+
 ## Getting Started
 
 Connect to the robot via ssh:
@@ -18,16 +23,18 @@ or enable display to use visual tools such as Rviz2
 ssh fastbot@master -X
 ```
 
+Clone this repository into your ROS2 workspace `src` directory (create if not exist):
+```bash
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+git clone <this-repo-url>
+cd fastbot
+git submodule update --init --recursive
+```
+
 ### Host setup
 
-1. Clone this repository into your ROS2 workspace `src` directory:
-    ```bash
-    cd ~/ros2_ws/src
-    git clone <this-repo-url>
-    cd fastbot
-    git submodule update --init --recursive
-    ```
-2. Install dependencies:
+1. Install dependencies:
     ```bash
     # Optional: Use if rosdep not initialized
     sudo rosdep init
@@ -37,11 +44,11 @@ ssh fastbot@master -X
     cd ~/ros2_ws
     rosdep install --from-paths src --ignore-src -r -y
     ```
-3. Build the workspace:
+2. Build the workspace:
     ```bash
     colcon build
     ```
-4. Source the workspace:
+3. Source the workspace:
     ```bash
     source install/setup.bash
     ```
@@ -69,6 +76,7 @@ Navigate to the docker directory and setup ROS2 containers.
 
 ```bash
 cd ~/ros2_ws/src/fastbot/fastbot_ros2_docker/real
+sudo chmod +x ros_entrypoint.sh
 docker-compose up
 ```
 
@@ -93,4 +101,3 @@ ros2 topic echo /fastbot_camera/image_raw
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/fastbot/cmd_vel
 ```
-
