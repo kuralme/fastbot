@@ -6,6 +6,10 @@ This repository contains all the ROS 2 packages necessary to operate and extend 
 
 With the latest addition of the Docker submodule, Fastbot can now be controlled using a containerized ROS 2 environment. This setup enables seamless deployment of SLAM and navigation capabilities on the real robot, making it easier to manage dependencies and run advanced robotics software reliably on the Raspberry Pi 4.
 
+<p align="center">
+ <img src="./media/fastbot.png" length=".5" width=".5">
+</p>
+
 ## Prerequisites
 
 - ROS2 Humble (for host setup)
